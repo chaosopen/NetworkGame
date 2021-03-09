@@ -17,7 +17,7 @@ public class ImagePreview {
 
     public void setSpeed(int speed) {
         if (speed >= 1000) {
-            speed = 999;
+            this.speed = 999;
         } else {
             this.speed = speed;
         }
