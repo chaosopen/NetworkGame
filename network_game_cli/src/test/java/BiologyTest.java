@@ -2,6 +2,7 @@ import com.haoran.GameStart;
 import com.haoran.scene.Home;
 import com.haoran.scene.Scene;
 import com.haoran.spirit.biology.Biology;
+import com.haoran.spirit.biology.Hero;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -26,7 +27,7 @@ public class BiologyTest extends JPanel {
     public static void main(String[] args) throws InterruptedException {
         GameStart gameStart = new GameStart();
         frame.add(gameStart); // 将面板添加到JFrame中
-        updateScene(new Home());
+        updateScene(new Home(new Hero()));
         gameStart.action();
 
 //        Thread.sleep(4000);
