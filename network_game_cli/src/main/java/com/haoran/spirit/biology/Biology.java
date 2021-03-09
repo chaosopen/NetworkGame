@@ -1,32 +1,39 @@
 package com.haoran.spirit.biology;
 
+import com.google.common.collect.Lists;
 import com.haoran.ResourcesImages;
 import com.haoran.spirit.Spirit;
-import javafx.util.Pair;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.util.List;
+import java.util.Timer;
 
 /**
  * 生物
  */
 public class Biology extends Spirit {
 
-    private Image image;
+    static Timer timer = new Timer();
+
+    List<Spirit> children = Lists.newArrayList();
 
     public Biology() {
-        image = ResourcesImages.imageMap.get("demo");
+        h = 500;
+        w = 500;
+        imagePreview.setSpeed(900);
+        for (int i = 13; i < 23; i++) {
+            Image image = ResourcesImages.imageMap.get("frame_" + i);
+            imagePreview.getPreviews().add(image);
+        }
+//        image = ResourcesImages.imageMap.get("demo");
     }
 
-    //速度
-    public Pair<Integer, Integer> speed = new Pair(0, 0);
-
-    public void update(int dt) {
-        x = speed.getKey() * dt;
-        y = speed.getValue() * dt;
-    }
 
     public void draw(Graphics g) {
-        g.drawImage(image, x, y, w, h, null);
+        super.draw(g);
+        for (Spirit child : children) {
+            child.draw(g);
+        }
     }
 }

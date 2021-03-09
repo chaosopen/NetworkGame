@@ -12,6 +12,8 @@ public class ResourcesImages {
     public static Map<String, Image> imageMap = Maps.newHashMap();
 
     static {
-        imageMap.put("demo", new ImageIcon(positionUrl + "1.png").getImage());
+        for (int i = 13; i < 23; i++) {
+            imageMap.put("frame_" + i, new ImageIcon(positionUrl + "people/frame_" + i + ".png").getImage());
+        }
     }
 }
